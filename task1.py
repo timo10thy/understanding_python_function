@@ -363,5 +363,100 @@ def task40_password_strength(password):
         return "Weak"
 print(task40_password_strength("mypassword9")) 
 
-
+print("Question 41.")
+def task41_shirt_order(quantity, price_per_shirt, discount_threshold=10, discount_rate=0.1):
+	total = quantity * price_per_shirt
+	if quantity >= discount_threshold:
+		total = total * (1 - discount_rate)
+		return total
+print(task41_shirt_order(12, 2000))
+print("Question 42.")
+def task42_find_mode(numbers):
+	if not numbers:
+		return None
+	return max(numbers, key=numbers.count)
+print(task42_find_mode([1, 2, 2, 3, 3]))
+print("Question 43.")
+def task43_student_average(scores):
+    total = 0
+    count = 0
+    for subject in scores:
+        total = total + scores[subject]
+        count = count + 1
+#count by zero not allow
+    if count == 0:
+        return 0 
+    return total / count
+print(task43_student_average({"math": 80, "english": 70}))      # 75.0
+print("Question 44.")
+def task44_calculate_age(current_year, birth_year):
+	age = current_year -birth_year
+	return age
+print(task44_calculate_age(2025,2004))
+print("Question 45.")
+def task45_salary_after_tax(salary, tax_rate=0.15):
+	net_salary = salary * (1 - tax_rate)
+	return net_salary
+print(task45_salary_after_tax(100000))
+print("Question 46")
+def task46_water_bill(units):
+	if units <= 30:
+		return units * 50
+	elif units <= 50:
+		return (30 * 50) + (units - 30) * 75
+	else:
+		return (30 * 50) + (20 * 75) + (units - 50) * 100
+print(task46_water_bill(25))
+print(task46_water_bill(40))
+print("Question 47")
+def task47_find_longest_word(sentence):
+    longest = ""
+    current = ""
+    for ch in sentence:
+        if ch != " ":      
+            current += ch
+        else:                  
+            if len(current) > len(longest):
+                longest = current
+            current = ""   
+    if len(current) > len(longest):
+        longest = current
+    return longest
+print(task47_find_longest_word("I love programming")) 
+print("Question 48.")
+def task48_banking_withdraw(balance, withdraw_amount):
+	if withdraw_amount <= balance:
+		return balance - withdraw_amount
+	else:
+		return "Insufficient funds"
+print(task48_banking_withdraw(500, 600))
+print("Question 49.")
+def task49_calculate_grade_point(score):
+	if 70 <= score <= 100:
+		return 5 
+	elif 60 <= score <= 69:
+		return 4
+	elif 50 <= score <= 59:
+		return 3
+	elif 45 <= score <= 49:
+		return 2
+	elif 40 <= score <= 44:
+		return 1
+	elif 0 <= score < 40:
+		return 0
+	else:
+		return "Invalid score"
+print(task49_calculate_grade_point(85))
+print("Question.50")
+def task50_weather_advice(temperature, raining):
+    if raining:
+        return "Take an umbrella"
+    elif temperature > 30:
+        return "Wear light clothes"
+    elif temperature < 15:
+        return "Wear a jacket"
+    else:
+        return "Weather is fine"
+print(task50_weather_advice(25, True))   
+print(task50_weather_advice(20, False))
 
